@@ -2,6 +2,8 @@
 
 Bookmark webpages into a Ghost draft with a single click.
 
+[![](screenshot.png)](screenshot.png)
+
 ## What It Does
 - Adds a context menu entry to capture the active tab (plus selection as a note).
 - Opens a popup to review the URL, add an optional note, and save.
