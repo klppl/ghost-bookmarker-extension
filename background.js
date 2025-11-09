@@ -1,6 +1,6 @@
 /**
  * Background script for Ghost Bookmarker
- * Handles context menu, commands, and webRequest interception
+ * Handles context menu and webRequest interception
  */
 
 // Import utils (will be bundled)
@@ -19,9 +19,6 @@ async function init() {
   
   // Listen for context menu clicks
   browser.contextMenus.onClicked.addListener(handleContextMenuClick);
-  
-  // Listen for command shortcuts
-  browser.commands.onCommand.addListener(handleCommand);
   
   // Set up webRequest listener for CORS
   browser.webRequest.onBeforeSendHeaders.addListener(
@@ -56,43 +53,6 @@ async function handleContextMenuClick(info, tab) {
     }
     
     await openPopupWithData(url, selectedText);
-  }
-}
-
-/**
- * Handle command shortcut (Ctrl+Shift+P)
- */
-async function handleCommand(command) {
-  if (command === 'bookmark-current-tab') {
-    try {
-      const tabs = await browser.tabs.query({ active: true, currentWindow: true });
-      if (tabs.length === 0) {
-        showNotification('Error', 'No active tab found');
-        return;
-      }
-      
-      const tab = tabs[0];
-      let url = tab.url;
-      let selectedText = '';
-      
-      // Try to get selected text from the page
-      try {
-        const results = await browser.tabs.executeScript(tab.id, {
-          code: 'window.getSelection().toString()'
-        });
-        if (results && results[0]) {
-          selectedText = results[0];
-        }
-      } catch (e) {
-        // Selection might not be available
-        console.log('Could not get selected text:', e);
-      }
-      
-      await openPopupWithData(url, selectedText);
-    } catch (error) {
-      console.error('Error handling command:', error);
-      showNotification('Error', 'Failed to get current tab information');
-    }
   }
 }
 

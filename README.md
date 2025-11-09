@@ -1,9 +1,9 @@
 # Ghost Bookmarker
 
-Bookmark webpages into a Ghost draft with a single click or shortcut.
+Bookmark webpages into a Ghost draft with a single click.
 
 ## What It Does
-- Adds a context menu entry and `Ctrl+Shift+P` shortcut to capture the active tab (plus selection as a note).
+- Adds a context menu entry to capture the active tab (plus selection as a note).
 - Opens a popup to review the URL, add an optional note, and save.
 - Stores everything in a "Bookmarked links" draft inside your Ghost Admin.
 

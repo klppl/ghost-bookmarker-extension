@@ -48,15 +48,6 @@
     "http://*/ghost/*"
   ],
   
-  "commands": {
-    "bookmark-current-tab": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+P"
-      },
-      "description": "Bookmark current tab to Ghost"
-    }
-  },
-  
   "icons": {
     "16": "icons/icon-16.png",
     "48": "icons/icon-48.png",
