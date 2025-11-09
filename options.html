@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghost Bookmarker - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Ghost Bookmarker Settings</h1>
+      <p class="subtitle">Configure your Ghost Admin API credentials</p>
+    </header>
+    
+    <form id="settings-form">
+      <div class="form-section">
+        <div class="form-group">
+          <label for="ghost-api-url">Ghost Admin API URL:</label>
+          <input type="url" id="ghost-api-url" required placeholder="https://your-ghost-site.com">
+          <small class="help-text">
+            The base URL of your Ghost installation (e.g., https://your-ghost-site.com)
+          </small>
+        </div>
+        
+        <div class="form-group">
+          <label for="ghost-api-key">Ghost API Key or Staff Token:</label>
+          <input type="password" id="ghost-api-key" required placeholder="keyId:secret or token">
+          <small class="help-text">
+            Either:
+            <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+              <li><strong>Admin API Key</strong> (format: <code>keyId:secret</code>) - from Settings → Integrations</li>
+              <li><strong>Staff Token</strong> (Personal Access Token) - from Settings → Staff → [Your User] → Personal Tokens</li>
+            </ul>
+          </small>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button type="submit" id="save-button">Save Settings</button>
+        <button type="button" id="test-button">Test Connection</button>
+      </div>
+    </form>
+    
+    <div id="status-message" class="status-message"></div>
+    
+    <div class="info-section">
+      <h2>How to get your Ghost API credentials:</h2>
+      <div style="margin-bottom: 16px;">
+        <h3 style="font-size: 16px; margin-bottom: 8px;">Option 1: Admin API Key (Integration)</h3>
+        <ol style="margin-top: 0;">
+          <li>Go to your Ghost Admin dashboard</li>
+          <li>Navigate to Settings → Integrations</li>
+          <li>Click "Add custom integration"</li>
+          <li>Copy the Admin API key (format: keyId:secret)</li>
+        </ol>
+      </div>
+      <div>
+        <h3 style="font-size: 16px; margin-bottom: 8px;">Option 2: Staff Token (Personal Access Token) - Recommended</h3>
+        <ol style="margin-top: 0;">
+          <li>Go to your Ghost Admin dashboard</li>
+          <li>Navigate to Settings → Staff</li>
+          <li>Click on your user profile</li>
+          <li>Scroll to "Personal Tokens" section</li>
+          <li>Click "Generate Token"</li>
+          <li>Copy the token (it's a single string, no colon)</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
+

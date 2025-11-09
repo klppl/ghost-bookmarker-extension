@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghost Bookmarker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Ghost Bookmarker</h1>
+    
+    <form id="bookmark-form">
+      <div class="form-group">
+        <label for="url-input">URL:</label>
+        <input type="url" id="url-input" required placeholder="https://example.com">
+      </div>
+      
+      <div class="form-group">
+        <label for="note-input">Note (optional):</label>
+        <textarea id="note-input" rows="3" placeholder="Add a note about this bookmark..."></textarea>
+      </div>
+      
+      <div class="button-group">
+        <button type="submit" id="save-button">Save to Ghost</button>
+        <button type="button" id="settings-button">Settings</button>
+      </div>
+    </form>
+    
+    <div id="status-message" class="status-message"></div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
+

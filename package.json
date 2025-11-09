@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "web-ext": "^9.1.0"
+  }
+}
